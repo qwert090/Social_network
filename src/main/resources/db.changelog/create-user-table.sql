@@ -1,0 +1,10 @@
+-- Create table user
+-- (
+--     id bigserial NOT NULL,
+--     username varchar(50),
+--     email varchar(50),
+--     bio varchar(300),
+--     password varchar(50),
+--     created_at timestamp,
+--     Primary Key (id)
+-- )
