@@ -1,37 +1,40 @@
 package com.example.social_network.service;
 
 import com.example.social_network.model.User;
+import com.example.social_network.repository.UserRepository;
 import com.example.social_network.service.ServiceInterface.UserService;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class UserServiceImpl implements UserService {
+
+    private final UserRepository repository;
     @Override
     public List<User> findAll() {
-        return List.of(
-                User.builder().nickname("steve").email("petracho").bio("cool").createAt("12.12.12").build()
-        );
+        return repository.findAll();
     }
 
     @Override
-    public User createUser(User user) {
-        return null;
+    public User saveUser(User user) {
+        return repository.createUser(user);
     }
 
     @Override
-    public User findUserByNickname(String nickname) {
-        return null;
+    public User findUserByEmail(String email) {
+        return repository.findUserByEmail(email);
     }
 
     @Override
     public User updateUser(User user) {
-        return null;
+        return repository.updateUser(user);
     }
 
     @Override
     public void deleteUserByEmail(String email) {
-
+        repository.deleteUserByEmail(email);
     }
 }
